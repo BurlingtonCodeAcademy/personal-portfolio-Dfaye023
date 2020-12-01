@@ -1,155 +1,336 @@
+/* CSS Page */
+/* body background image*/
 body {
-    display: flex;
-    flex-direction: column;
-    background-image: linear-gradient(rgb(255, 255, 255), rgb(201, 235, 247), rgb(103, 186, 253), rgb(80, 80, 247), blue );
+  background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80");
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  animation: animation 100s linear infinite;
+  font-family: "Roboto" sans-serif;
 }
-
-
-
-.Navbar {
-    display: flex;
-    position: sticky;
-    width: 100%;
-    height: 50px;
-    color: rgba(242, 242, 64, 0.693);
-    align-items: center;
-    border-bottom: groove;
+/* animation for background */
+@keyframes animation {
+  100% {
+    background-position: 0px -3000px;
+  }
 }
-
-h1{
-    display: flex;
-    flex-direction: column;
-    color: rgb(0, 0, 0);
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 800;
-    justify-content: center;
-    align-items: center;
-    padding: 40px;
-    font-size: 65px;
-    
-    
+/* navbar with background image to match card background */
+nav {
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 50%;
+  height: 300px;
+  background-image: url(https://img00.deviantart.net/0614/i/2012/106/a/e/classic_pkmn_tcg_texture_pack_by_flamingclaw-d4wcj31.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(0, 0, 0, 0.87);
+  -webkit-clip-path: circle(100px at 1px 1px);
+  clip-path: circle(100px at 1px 1px);
+  -webkit-transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
+  transition: -webkit-clip-path 0.5625s, clip-path 0.375s;
+  font-family: "Roboto" sans-serif;
 }
-
-.homepage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* animation for when navbar is hovered over */
+nav:hover {
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.75s;
+  transition-duration: 0.75s;
+  -webkit-clip-path: circle(390px at 255px 24px);
+  clip-path: circle(390px at 250px 24px);
 }
-
+/* all <a> tags */
 a {
-    display: flex;
-    width: 100%;
-    height: 25px;
-    color: grey;
-    font-weight: 500;
-    justify-content: space-evenly;
+  display: block;
+  line-height: 50px;
+  padding: 0 75px;
+  color: inherit;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 500;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
-#homepagetext {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 900;
+/* background color changes when hovered over <a> tags */
+a:hover {
+  background: #f0d935;
 }
-
-.work {
-    display: flex;
-    flex-direction: column;
+/* background color changes when <a> tags are clicked */
+a:active {
+  background: goldenrod;
 }
-
-#resume {
-    display: flex;
-    flex-direction: column;
-    align-items: baseline;
-    font-size: 40px;
-    font-weight: 900;
-    color: gold;
-    margin: 10px;
-    padding-top: 30vh;
+/* size for the nav menu icon */
+#burger {
+  font-size: 48px;
 }
-
-h3 {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    border-bottom: double;
-    border-radius: 5px;
+/* styles for the navbar menu */
+.menu {
+  padding: 10px 30px;
+  cursor: pointer;
+  -webkit-transform-origin: 32px 24px;
+  -ms-transform-origin: 32px 24px;
+  transform-origin: 32px 24px;
 }
-
-p {
-    display: flex;
-    flex-direction: column;
-    margin-left: 20px;
+/*  styles for individual divs in the navbar menu */
+.menu div {
+  position: relative;
+  width: 20px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.87);
 }
-
-h2 {
-    display: flex;
-    flex-direction: column;
-    font-weight: 500;
-    width: 100%;
-    height: 25px;
-    align-items: center;
+/* styles for navbar menu before/after they are hovered */
+.menu div:before,
+.menu div:after {
+  display: block;
+  content: "";
+  width: 20px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.87);
+  position: absolute;
 }
-
-#repolink {
-    display: flex;
-    flex-direction: column;
-    height: 40px;
-    outline-color: gold;
-    color: white;
-    align-items: center;
+.menu div:before {
+  top: -7px;
 }
-
-.hobbies {
-    display: flex;
-    flex-direction: column;
-
+.menu div:after {
+  top: 7px;
 }
-
-.hobbies h2{
-    font-style: italic;
-    font-size: 30px;
-    padding-bottom: 40px;
-    padding-top: 25px;
+/* styles for bio card on each page. background image imported same as navbar */
+#bio-card {
+  height: 750px;
+  width: clamp(20ch, 1000%, 46ch);
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-image: url(https://img00.deviantart.net/0614/i/2012/106/a/e/classic_pkmn_tcg_texture_pack_by_flamingclaw-d4wcj31.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 25px;
+  border: 25px solid #f0d935;
+  border-radius: 15px;
+  box-shadow: 1px 4px 10px 4px lightgrey;
 }
-
-.hobbies li {
-    padding-left: 20px;
-}
-
-#contact {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    
-}
-
+/* About Page CSS */
+/* set page to grid display with repeating columns to better organize content */
 .about {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
-
+/* styles for title specific to the about me page */
+.about #about-title {
+  color: #f0d935;
+  margin-top: -200px;
+  position: absolute;
+  left: 40%;
+  font-size: 100px;
+  font-weight: 800;
+  border: none;
+}
+/* styles for <h1> tags specific to the about me page */
+.about h1 {
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: black 1px solid;
+}
+/* styles for <p> tags specific to the about me page */
 .about p {
-    display: flex;
-    flex-direction: column;
-    font-weight: 400;
-    padding-top: 150px;
+  font-size: 25px;
+  font-weight: 500;
+  text-align: left;
+  margin: 10px;
+  line-height: 35px;
 }
-
-.footer{
-    display: flex;
-    position: sticky;
-    color: ivory;
-    font-weight: 500;
-    flex-shrink: 0;
-    justify-content: baseline;
-    width: 100%;
-    border-top: groove;
-    align-items: baseline;
-    margin-top: 25vw;
+/* styles for contact me card on the about me page */
+.about #contact-card {
+  font-size: 25px;
+  text-align: left;
 }
+/* styles for linkedin link on the about me page */
+.about #linkedin {
+  font-size: 30px;
+  font-weight: 700;
+}
+/* styles for photo specific to the about me page */
+.about #photo {
+  height: 400px;
+  width: 100%;
+}
+/* Hobby Page CSS */
+/* set page to grid display with repeating columns to better organize content */
+.hobbies {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+  gap: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+/* styles for title specific to the hobbies page */
+.hobbies #hobbies-title {
+  color: #f0d935;
+  margin-top: -200px;
+  position: absolute;
+  left: 32%;
+  font-size: 100px;
+  font-weight: 800;
+  border: none;
+}
+/* styles for <h1> tags specific to the hobbies page */
+.hobbies h1 {
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: black 1px solid;
+}
+/* styles for <li> tags specific to the hobbies page */
+.hobbies li {
+  font-size: 25px;
+  font-weight: 500;
+  padding: 10px;
+  list-style: none;
+}
+/* Home Page CSS */
+/* set page to grid display to better center content */
+.homepage {
+  display: grid;
+  place-items: center;
+}
+/* styles for photo specific to the home page */
+.homepage #photo {
+  height: 500px;
+  width: 100%;
+}
+/* styles for <h1> tags specific to the home page */
+.homepage h1 {
+  font-weight: 1000;
+}
+/* styles for the title specific to the home page */
+.homepage #home-title {
+  color: #f0d935;
+  margin-top: -200px;
+  font-size: 100px;
+  font-weight: 800;
+  border: none;
+}
+/* styles for <p> tags specific to the home page */
+.homepage p {
+  font-size: 25px;
+  font-weight: 500;
+  text-align: left;
+  margin: 10px;
+}
+/* Projects Page CSS */
+/* set page to grid display with repeating columns to better organize content */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+  gap: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+/* styles for bio cards on the projects page */
+.projects #bio-card {
+  height: 750px;
+  width: clamp(20ch, 50%, 46ch);
+  display: flex;
+  flex-direction: column;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  background-image: url(https://img00.deviantart.net/0614/i/2012/106/a/e/classic_pkmn_tcg_texture_pack_by_flamingclaw-d4wcj31.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 
-.content{
-    display: flex;
-    min-height: 65vh;
-    flex-direction: column;
+  border: 25px solid #f0d935;
+  border-radius: 15px;
+  box-shadow: 1px 4px 10px 4px lightgrey;
+}
+/* styles for title specific to the projects page */
+.projects #projects-title {
+  color: #f0d935;
+  margin-top: -200px;
+  position: absolute;
+  left: 43%;
+  font-size: 100px;
+  font-weight: 800;
+  border: none;
+}
+/* styles for git profile link under title on projects page */
+.projects #git-profile {
+  color: #f0d935;
+  margin-top: -5px;
+  position: relative;
+  left: -33%;
+  font-size: 50px;
+  border: none;
+}
+/* styled to get rid of the background and underline on link */
+#git-profile:hover {
+  background: none;
+  text-decoration: underline;
+}
+/* styles for <h1> tags specific to the projects page */
+.projects h1 {
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: black 1px solid;
+}
+/* styles for photo specific to the projects page */
+.projects #photo {
+  height: 50%;
+  width: 100%;
+  align-items: center;
+}
+/* styles for <p> tags specific to the projects page */
+.projects p {
+  font-size: 25px;
+  font-weight: 500;
+}
+/* Work History Page CSS */
+/* set page to grid display with repeating columns to better organize content */
+.work-page {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  justify-items: center;
+}
+/* styles for title specific to the work history page */
+.work-page #work-title {
+  color: #f0d935;
+  margin-top: -200px;
+  position: absolute;
+  left: 38%;
+  font-size: 100px;
+  font-weight: 800;
+  border: none;
+}
+/* styles for <h1> tags specific to the work history page */
+.work-page h1 {
+  font-weight: 700;
+  font-size: 30px;
+  border-bottom: black 1px solid;
+}
+/* styles for <h2> tags specific to the work history page */
+.work-page h2 {
+  margin-top: -10px;
+  font-size: 20px;
+}
+/* styles for <h3> tags specific to the work history page */
+.work-page h3 {
+  font-weight: 800;
+  font-size: 25px;
+  margin-bottom: -10px;
+}
+/* styles for <p> tags specific to the work history page */
+.work-page p {
+  font-size: 25px;
+  font-weight: 500;
 }

@@ -1,50 +1,68 @@
-import React from 'react';
+//import react, css page, and Router/Switch/Route from react router
+import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import './App.css';
-import Navbar from './navbar.js';
-import Projects from './projects.js';
-import Homepage from './homepage.js';
-import Work from './work.js';
-import Hobbies from './hobbies.js';
-import About from './about.js';
-import Footer from './footer.js';
+import "./App.css";
 //import all .js pages
-
+import Projects from "./projects.js";
+import Homepage from "./homepage.js";
+import Work from "./work.js";
+import Hobbies from "./hobbies.js";
+import About from "./about.js";
+//import menu icon for navbar
+import { MdMenu } from "react-icons/md";
 function App() {
-
-  return ( //import page links into navbar & footer. all accessible on all pages
+  return (
+    //import page links into navbar. all accessible on all pages
     <Router>
-      <div class="Navbar">
-        <Link to='./homepage.js'>Home Page</Link>
-        <Link to='./work.js'>Work</Link>
-        <Link to='./about.js'>About</Link>
-        <Link to='./projects.js'>Projects</Link>
-        <Link to='./hobbies.js'>Hobbies</Link>
-      </div>
-      <Switch> 
-        <Route exact path="/homepage.js">
+      {/* navbar div */}
+      <nav>
+        {/* bring in menu icon that was imported */}
+        <MdMenu id="burger" />
+        <div id="menu">
+          <a>
+            {/* navbar link to the homepage */}
+            <Link to="/">Home Page</Link>
+          </a>
+          <a>
+            {/* navbar link to work history page */}
+            <Link to="/work">Work History</Link>
+          </a>
+          <a>
+            {/* navbar link to project page */}
+            <Link to="/projects">Projects</Link>
+          </a>
+          <a>
+            {/* navbar link to about me page */}
+            <Link to="/about">About</Link>
+          </a>
+          <a>
+            {/* navbar link to hobbies & fun facts page */}
+            <Link to="/hobbies">Hobbies</Link>
+          </a>
+        </div>
+      </nav>
+      <Switch>
+        {/* route to home page on initial page load */}
+        <Route exact path="/">
           <Homepage />
         </Route>
-        <Route path="/work.js">
+        {/* route to work history page */}
+        <Route path="/work">
           <Work />
         </Route>
-        <Route path="/about.js">
+        {/* route to about me page */}
+        <Route path="/about">
           <About />
         </Route>
-        <Route path="/projects.js">
+        {/* route to projects page */}
+        <Route path="/projects">
           <Projects />
         </Route>
-        <Route path='/hobbies.js'>
+        {/* route to hobbies & fun facts page */}
+        <Route path="/hobbies">
           <Hobbies />
         </Route>
       </Switch>
-      <div class='footer'>
-        <Link to='./homepage.js'>Home Page</Link>
-        <Link to='./work.js'>Work</Link>
-        <Link to='./about.js'>About</Link>
-        <Link to='./projects.js'>Projects</Link>
-        <Link to='./hobbies.js'>Hobbies</Link>
-      </div>
     </Router>
   );
 }
